@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Application2/Application2.iml" filepath="$PROJECT_DIR$/Application2/Application2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Applications1/Applications1.iml" filepath="$PROJECT_DIR$/Applications1/Applications1.iml" />
       <module fileurl="file://$PROJECT_DIR$/HelloServlet/HelloServlet.iml" filepath="$PROJECT_DIR$/HelloServlet/HelloServlet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JAVAEE/JAVAEE.iml" filepath="$PROJECT_DIR$/JAVAEE/JAVAEE.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaEE.iml" filepath="$PROJECT_DIR$/.idea/JavaEE.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestServelt/TestServelt.iml" filepath="$PROJECT_DIR$/TestServelt/TestServelt.iml" />
     </modules>

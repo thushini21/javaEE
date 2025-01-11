@@ -1,4 +1,5 @@
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +10,8 @@ import javax.json.JsonObjectBuilder;
 import java.io.IOException;
 import java.sql.*;
 
+
+@WebServlet(urlPatterns = "/item")
 public class ItemServlet extends HttpServlet {
 
     protected String GenerateNextItemId() {
@@ -33,6 +36,7 @@ public class ItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("inside do get");
         if ("generateNewId".equals(req.getParameter("action"))) {
             String newItemId = GenerateNextItemId();
             resp.setContentType("text/plain");
@@ -52,6 +56,7 @@ public class ItemServlet extends HttpServlet {
                     String description = resultSet.getString("description");
                     int qtyOnHand = resultSet.getInt("qtyOnHand");
                     Double unitPrice = resultSet.getDouble("unitPrice");
+                    System.out.println(code+" "+description);
 
                     JsonObjectBuilder item = Json.createObjectBuilder();
 
@@ -147,7 +152,7 @@ public class ItemServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
         String query = "DELETE FROM item WHERE code = ?";
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "1234")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "Ijse@1234")) {
 
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
                 stmt.setString(1, code);
